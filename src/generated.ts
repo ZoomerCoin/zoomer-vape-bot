@@ -20,7 +20,7 @@ import {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /**
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x699315bc4dCA38947AD489f4748a172Dba9A16Ff)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x7Ff99542FBD8e7BF7Ee63ec5DD7b7F226D9a6EDD)
  */
 export const vapeGameABI = [
   {
@@ -29,6 +29,7 @@ export const vapeGameABI = [
     inputs: [
       { name: '_gameTime', internalType: 'uint256', type: 'uint256' },
       { name: '_zoomer', internalType: 'address', type: 'address' },
+      { name: '_nfts', internalType: 'address[]', type: 'address[]' },
       { name: '_linkAddress', internalType: 'address', type: 'address' },
       { name: '_vrfV2Wrapper', internalType: 'address', type: 'address' },
     ],
@@ -187,7 +188,21 @@ export const vapeGameABI = [
     stateMutability: 'view',
     type: 'function',
     inputs: [],
+    name: 'DIVIDEND_CONTRIBUTION',
+    outputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
+  },
+  {
+    stateMutability: 'view',
+    type: 'function',
+    inputs: [],
     name: 'GAME_TIME',
+    outputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
+  },
+  {
+    stateMutability: 'view',
+    type: 'function',
+    inputs: [],
+    name: 'LOTTO_CONTRIBUTION',
     outputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
   },
   {
@@ -202,6 +217,27 @@ export const vapeGameABI = [
     type: 'function',
     inputs: [],
     name: 'MIN_ZOOMER',
+    outputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
+  },
+  {
+    stateMutability: 'view',
+    type: 'function',
+    inputs: [],
+    name: 'POT_CONTRIBUTION',
+    outputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
+  },
+  {
+    stateMutability: 'view',
+    type: 'function',
+    inputs: [],
+    name: 'TREASURY_CONTRIBUTION',
+    outputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
+  },
+  {
+    stateMutability: 'view',
+    type: 'function',
+    inputs: [],
+    name: 'VAPE_PRICE_TICK',
     outputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
   },
   {
@@ -273,13 +309,6 @@ export const vapeGameABI = [
     stateMutability: 'view',
     type: 'function',
     inputs: [],
-    name: 'devFund',
-    outputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
-  },
-  {
-    stateMutability: 'view',
-    type: 'function',
-    inputs: [],
     name: 'finalLottoValueETH',
     outputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
   },
@@ -309,6 +338,13 @@ export const vapeGameABI = [
     type: 'function',
     inputs: [{ name: 'user', internalType: 'address', type: 'address' }],
     name: 'hasEnoughZoomer',
+    outputs: [{ name: '', internalType: 'bool', type: 'bool' }],
+  },
+  {
+    stateMutability: 'view',
+    type: 'function',
+    inputs: [{ name: 'user', internalType: 'address', type: 'address' }],
+    name: 'hasNft',
     outputs: [{ name: '', internalType: 'bool', type: 'bool' }],
   },
   {
@@ -380,6 +416,13 @@ export const vapeGameABI = [
   {
     stateMutability: 'view',
     type: 'function',
+    inputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
+    name: 'nfts',
+    outputs: [{ name: '', internalType: 'address', type: 'address' }],
+  },
+  {
+    stateMutability: 'view',
+    type: 'function',
     inputs: [],
     name: 'numHits',
     outputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
@@ -427,6 +470,13 @@ export const vapeGameABI = [
     type: 'function',
     inputs: [],
     name: 'startGame',
+    outputs: [],
+  },
+  {
+    stateMutability: 'nonpayable',
+    type: 'function',
+    inputs: [],
+    name: 'sweep',
     outputs: [],
   },
   {
@@ -513,17 +563,18 @@ export const vapeGameABI = [
     name: 'zoomer',
     outputs: [{ name: '', internalType: 'contract ERC20', type: 'address' }],
   },
+  { stateMutability: 'payable', type: 'receive' },
 ] as const
 
 /**
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x699315bc4dCA38947AD489f4748a172Dba9A16Ff)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x7Ff99542FBD8e7BF7Ee63ec5DD7b7F226D9a6EDD)
  */
 export const vapeGameAddress = {
-  5: '0x699315bc4dCA38947AD489f4748a172Dba9A16Ff',
+  5: '0x7Ff99542FBD8e7BF7Ee63ec5DD7b7F226D9a6EDD',
 } as const
 
 /**
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x699315bc4dCA38947AD489f4748a172Dba9A16Ff)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x7Ff99542FBD8e7BF7Ee63ec5DD7b7F226D9a6EDD)
  */
 export const vapeGameConfig = {
   address: vapeGameAddress,
@@ -537,7 +588,7 @@ export const vapeGameConfig = {
 /**
  * Wraps __{@link getContract}__ with `abi` set to __{@link vapeGameABI}__.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x699315bc4dCA38947AD489f4748a172Dba9A16Ff)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x7Ff99542FBD8e7BF7Ee63ec5DD7b7F226D9a6EDD)
  */
 export function getVapeGame(
   config: Omit<GetContractArgs, 'abi' | 'address'> & {
@@ -554,7 +605,7 @@ export function getVapeGame(
 /**
  * Wraps __{@link readContract}__ with `abi` set to __{@link vapeGameABI}__.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x699315bc4dCA38947AD489f4748a172Dba9A16Ff)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x7Ff99542FBD8e7BF7Ee63ec5DD7b7F226D9a6EDD)
  */
 export function readVapeGame<
   TAbi extends readonly unknown[] = typeof vapeGameABI,
@@ -574,7 +625,7 @@ export function readVapeGame<
 /**
  * Wraps __{@link writeContract}__ with `abi` set to __{@link vapeGameABI}__.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x699315bc4dCA38947AD489f4748a172Dba9A16Ff)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x7Ff99542FBD8e7BF7Ee63ec5DD7b7F226D9a6EDD)
  */
 export function writeVapeGame<
   TFunctionName extends string,
@@ -611,7 +662,7 @@ export function writeVapeGame<
 /**
  * Wraps __{@link prepareWriteContract}__ with `abi` set to __{@link vapeGameABI}__.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x699315bc4dCA38947AD489f4748a172Dba9A16Ff)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x7Ff99542FBD8e7BF7Ee63ec5DD7b7F226D9a6EDD)
  */
 export function prepareWriteVapeGame<
   TAbi extends readonly unknown[] = typeof vapeGameABI,
@@ -632,7 +683,7 @@ export function prepareWriteVapeGame<
 /**
  * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link vapeGameABI}__.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x699315bc4dCA38947AD489f4748a172Dba9A16Ff)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x7Ff99542FBD8e7BF7Ee63ec5DD7b7F226D9a6EDD)
  */
 export function watchVapeGameEvent<
   TAbi extends readonly unknown[] = typeof vapeGameABI,
