@@ -2,7 +2,6 @@ import { Bot, InlineKeyboard } from "grammy";
 import { createConfig, configureChains, mainnet } from "@wagmi/core";
 import { publicProvider } from "@wagmi/core/providers/public";
 import { createClient } from "@supabase/supabase-js";
-import { goerli } from "viem/chains";
 import { formatEther, parseEther } from "viem";
 
 import { watchVapeGameEvent } from "./generated";
@@ -15,7 +14,7 @@ const supabaseKey = process.env.SUPABASE_KEY!;
 const supabase = createClient<Database>(supabaseUrl, supabaseKey);
 
 const { publicClient, webSocketPublicClient } = configureChains(
-  [mainnet, goerli],
+  [mainnet],
   [
     publicProvider(),
     infuraProvider({ apiKey: process.env.INFURA_KEY! }),

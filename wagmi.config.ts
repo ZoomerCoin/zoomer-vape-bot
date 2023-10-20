@@ -1,6 +1,6 @@
 import { defineConfig, loadEnv, Config } from "@wagmi/cli";
 import { actions, etherscan } from "@wagmi/cli/plugins";
-import { goerli } from "wagmi/chains";
+import { mainnet } from "wagmi/chains";
 
 export default defineConfig(() => {
   const env = loadEnv({
@@ -12,12 +12,12 @@ export default defineConfig(() => {
     plugins: [
       etherscan({
         apiKey: env.ETHERSCAN_API_KEY!,
-        chainId: goerli.id,
+        chainId: mainnet.id,
         contracts: [
           {
             name: "VapeGame",
             address: {
-              [goerli.id]: "0x7Ff99542FBD8e7BF7Ee63ec5DD7b7F226D9a6EDD",
+              [mainnet.id]: "0x0D6dC2a36C5c3EbD6F9B67Afd18b31C0074089E5",
             },
           },
         ],
