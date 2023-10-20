@@ -4,7 +4,10 @@ import { publicProvider } from "@wagmi/core/providers/public";
 import { createClient } from "@supabase/supabase-js";
 import { formatEther, parseEther } from "viem";
 
-import { watchVapeGameEvent } from "./generated";
+import {
+  readVapeGame,
+  watchVapeGameEvent,
+} from "./generated";
 import { Database } from "./supabase";
 import { alchemyProvider } from "wagmi/providers/alchemy";
 import { infuraProvider } from "wagmi/providers/infura";
@@ -94,6 +97,82 @@ bot.command("test", async (ctx) => {
       disable_web_page_preview: true,
       reply_markup: new InlineKeyboard()
         .url("Cmon, Take a Hit!", "https://vape.zoomer.money")
+        .row()
+        .url(
+          "Buy $ZOOMER",
+          "https://app.uniswap.org/#/tokens/ethereum/0x0d505c03d30e65f6e9b4ef88855a47a89e4b7676"
+        )
+        .row()
+        .url("WTF is $ZOOMER??", "https://zoomer.money"),
+    }
+  );
+});
+
+bot.command("stats", async (ctx) => {
+  const [
+    minInvest,
+    potValueETH,
+    lottoValueETH,
+    totalDividendsValueETH,
+    lastPurchasedTime,
+    lastPurchasedAddress,
+    gameTime,
+  ] = await Promise.all([
+    readVapeGame({ functionName: "minInvest" }),
+    readVapeGame({ functionName: "potValueETH" }),
+    readVapeGame({ functionName: "lottoValueETH" }),
+    readVapeGame({ functionName: "totalDividendsValueETH" }),
+    readVapeGame({ functionName: "lastPurchasedTime" }),
+    readVapeGame({ functionName: "lastPurchasedAddress" }),
+    readVapeGame({ functionName: "GAME_TIME" }),
+  ]);
+
+  console.log("lastPurchasedTime: ", lastPurchasedTime);
+  console.log("gameTime: ", gameTime);
+  // const timeLeft = 0;
+  const timeLeft =
+    Number(lastPurchasedTime.toString()) +
+    Number(gameTime.toString()) -
+    Date.now() / 1000;
+  console.log("timeLeft: ", timeLeft);
+  const date = new Date(0);
+  console.log("date: ", date);
+  date.setSeconds(Number(timeLeft.toString()));
+  const timeString = date.toISOString().substring(11, 19);
+  const [hours, minutes, seconds] = timeString.split(":");
+
+  await bot.api.sendMessage(
+    ctx.chat.id,
+    "<b>🌬💨 Ong we bussin frfr! 💨🌬</b>\n" +
+      '👤 Last Hit Taken by: <a href="https://etherscan.io/address/' +
+      lastPurchasedAddress +
+      '">' +
+      lastPurchasedAddress +
+      "</a>\n" +
+      "💸 Next Hit Price: <b>" +
+      formatEther(minInvest ?? 0n) +
+      " ETH</b> 💸\n" +
+      "🔥 Bussin Oil Value: <b>" +
+      formatEther(potValueETH ?? 0n) +
+      " ETH</b> 🔥\n" +
+      "🌟 Lucky Winner Value: <b>" +
+      formatEther(lottoValueETH ?? 0n) +
+      " ETH</b> 🌟\n" +
+      "💧 Total Free Hits Pool: <b>" +
+      formatEther(totalDividendsValueETH ?? 0n) +
+      " ETH</b> 💧\n\n" +
+      "🔋 Battery dies in <b>" +
+      hours +
+      " hours " +
+      minutes +
+      " minutes " +
+      seconds +
+      " seconds!</b>\n",
+    {
+      parse_mode: "HTML",
+      disable_web_page_preview: true,
+      reply_markup: new InlineKeyboard()
+        .url("Cmon, Take a Hit!", "https://zoomer-vape-ui.vercel.app")
         .row()
         .url(
           "Buy $ZOOMER",
