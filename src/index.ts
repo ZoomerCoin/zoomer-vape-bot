@@ -126,7 +126,7 @@ bot.command("stats", async (ctx) => {
     readVapeGame({ functionName: "lastPurchasedAddress" }),
     readVapeGame({ functionName: "GAME_TIME" }),
   ]);
-
+  console.log("stats command from chat: ", ctx.chat.id);
   console.log("lastPurchasedTime: ", lastPurchasedTime);
   console.log("gameTime: ", gameTime);
   // const timeLeft = 0;
@@ -134,9 +134,7 @@ bot.command("stats", async (ctx) => {
     Number(lastPurchasedTime.toString()) +
     Number(gameTime.toString()) -
     Date.now() / 1000;
-  console.log("timeLeft: ", timeLeft);
   const date = new Date(0);
-  console.log("date: ", date);
   date.setSeconds(Number(timeLeft.toString()));
   const timeString = date.toISOString().substring(11, 19);
   const [hours, minutes, seconds] = timeString.split(":");
