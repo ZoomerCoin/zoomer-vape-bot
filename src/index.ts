@@ -172,7 +172,7 @@ bot.command("stats", async (ctx) => {
       parse_mode: "HTML",
       disable_web_page_preview: true,
       reply_markup: new InlineKeyboard()
-        .url("Cmon, Take a Hit!", "https://zoomer-vape-ui.vercel.app")
+        .url("Cmon, Take a Hit!", "https://vape.zoomer.money")
         .row()
         .url(
           "Buy $ZOOMER",
