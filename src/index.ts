@@ -105,7 +105,7 @@ bot.command("test", async (ctx) => {
   );
 });
 
-watchVapeGameEvent({ chainId: 5, eventName: "TookAHit" }, async (log) => {
+watchVapeGameEvent({ chainId: 1, eventName: "TookAHit" }, async (log) => {
   console.log("log with chain id and event name: ", log);
   const hitLog = log.find((log) => log.eventName === "TookAHit");
   if (!hitLog) {
