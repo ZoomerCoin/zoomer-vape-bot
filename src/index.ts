@@ -108,7 +108,7 @@ bot.command("test", async (ctx) => {
   );
 });
 
-bot.command("stats", async (ctx) => {
+bot.command("vapestats", async (ctx) => {
   const [
     minInvest,
     potValueETH,
