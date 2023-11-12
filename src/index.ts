@@ -253,7 +253,7 @@ watchVapeGameEvent({ chainId: 1, eventName: "TookAHit" }, async (log) => {
   });
 });
 
-bot.start();
+bot.start({ onStart: () => console.log("Bot started") });
 
 bot.catch((err) => {
   console.log("BOT ERROR!!!: ", err);
