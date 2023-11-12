@@ -186,6 +186,12 @@ bot.command("vapestats", async (ctx) => {
 
 watchVapeGameEvent({ chainId: 1, eventName: "TookAHit" }, async (log) => {
   console.log("log with chain id and event name: ", log);
+
+  const [gameTime, numHits] = await Promise.all([
+    readVapeGame({ functionName: "GAME_TIME" }),
+    readVapeGame({ functionName: "numHits" }),
+  ]);
+
   const hitLog = log.find((log) => log.eventName === "TookAHit");
   if (!hitLog) {
     console.log("no hit log found");
@@ -217,6 +223,9 @@ watchVapeGameEvent({ chainId: 1, eventName: "TookAHit" }, async (log) => {
             '">' +
             hitLog.args.user +
             "</a>\n" +
+            "🔢 Number of Hits Taken: <b>" +
+            (numHits ?? 0n) +
+            "</b> 🔢\n" +
             "💸 Next Hit Price: <b>" +
             formatEther(hitLog.args.nextHitPrice ?? 0n) +
             " ETH</b> 💸\n" +
@@ -229,7 +238,9 @@ watchVapeGameEvent({ chainId: 1, eventName: "TookAHit" }, async (log) => {
             "💧 Total Free Hits Pool: <b>" +
             formatEther(hitLog.args.totalDividendsValueETH ?? 0n) +
             " ETH</b> 💧\n\n" +
-            "🔋 Battery reset, another 24 hours to go!\n",
+            "🔋 Battery reset, another" +
+            (gameTime / 3600n).toString() +
+            "hours to go!\n",
           {
             parse_mode: "HTML",
             disable_web_page_preview: true,
