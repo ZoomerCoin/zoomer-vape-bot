@@ -20,7 +20,7 @@ import {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /**
- * [__View Contract on Ethereum Etherscan__](https://etherscan.io/address/0x0D6dC2a36C5c3EbD6F9B67Afd18b31C0074089E5)
+ * [__View Contract on Ethereum Etherscan__](https://etherscan.io/address/0xC018FF8c08842151CbfA26E72Fe39fD0A155120D)
  */
 export const vapeGameABI = [
   {
@@ -567,14 +567,14 @@ export const vapeGameABI = [
 ] as const
 
 /**
- * [__View Contract on Ethereum Etherscan__](https://etherscan.io/address/0x0D6dC2a36C5c3EbD6F9B67Afd18b31C0074089E5)
+ * [__View Contract on Ethereum Etherscan__](https://etherscan.io/address/0xC018FF8c08842151CbfA26E72Fe39fD0A155120D)
  */
 export const vapeGameAddress = {
-  1: '0x0D6dC2a36C5c3EbD6F9B67Afd18b31C0074089E5',
+  1: '0xC018FF8c08842151CbfA26E72Fe39fD0A155120D',
 } as const
 
 /**
- * [__View Contract on Ethereum Etherscan__](https://etherscan.io/address/0x0D6dC2a36C5c3EbD6F9B67Afd18b31C0074089E5)
+ * [__View Contract on Ethereum Etherscan__](https://etherscan.io/address/0xC018FF8c08842151CbfA26E72Fe39fD0A155120D)
  */
 export const vapeGameConfig = {
   address: vapeGameAddress,
@@ -588,7 +588,7 @@ export const vapeGameConfig = {
 /**
  * Wraps __{@link getContract}__ with `abi` set to __{@link vapeGameABI}__.
  *
- * [__View Contract on Ethereum Etherscan__](https://etherscan.io/address/0x0D6dC2a36C5c3EbD6F9B67Afd18b31C0074089E5)
+ * [__View Contract on Ethereum Etherscan__](https://etherscan.io/address/0xC018FF8c08842151CbfA26E72Fe39fD0A155120D)
  */
 export function getVapeGame(
   config: Omit<GetContractArgs, 'abi' | 'address'> & {
@@ -605,7 +605,7 @@ export function getVapeGame(
 /**
  * Wraps __{@link readContract}__ with `abi` set to __{@link vapeGameABI}__.
  *
- * [__View Contract on Ethereum Etherscan__](https://etherscan.io/address/0x0D6dC2a36C5c3EbD6F9B67Afd18b31C0074089E5)
+ * [__View Contract on Ethereum Etherscan__](https://etherscan.io/address/0xC018FF8c08842151CbfA26E72Fe39fD0A155120D)
  */
 export function readVapeGame<
   TAbi extends readonly unknown[] = typeof vapeGameABI,
@@ -625,7 +625,7 @@ export function readVapeGame<
 /**
  * Wraps __{@link writeContract}__ with `abi` set to __{@link vapeGameABI}__.
  *
- * [__View Contract on Ethereum Etherscan__](https://etherscan.io/address/0x0D6dC2a36C5c3EbD6F9B67Afd18b31C0074089E5)
+ * [__View Contract on Ethereum Etherscan__](https://etherscan.io/address/0xC018FF8c08842151CbfA26E72Fe39fD0A155120D)
  */
 export function writeVapeGame<
   TFunctionName extends string,
@@ -662,7 +662,7 @@ export function writeVapeGame<
 /**
  * Wraps __{@link prepareWriteContract}__ with `abi` set to __{@link vapeGameABI}__.
  *
- * [__View Contract on Ethereum Etherscan__](https://etherscan.io/address/0x0D6dC2a36C5c3EbD6F9B67Afd18b31C0074089E5)
+ * [__View Contract on Ethereum Etherscan__](https://etherscan.io/address/0xC018FF8c08842151CbfA26E72Fe39fD0A155120D)
  */
 export function prepareWriteVapeGame<
   TAbi extends readonly unknown[] = typeof vapeGameABI,
@@ -683,7 +683,7 @@ export function prepareWriteVapeGame<
 /**
  * Wraps __{@link watchContractEvent}__ with `abi` set to __{@link vapeGameABI}__.
  *
- * [__View Contract on Ethereum Etherscan__](https://etherscan.io/address/0x0D6dC2a36C5c3EbD6F9B67Afd18b31C0074089E5)
+ * [__View Contract on Ethereum Etherscan__](https://etherscan.io/address/0xC018FF8c08842151CbfA26E72Fe39fD0A155120D)
  */
 export function watchVapeGameEvent<
   TAbi extends readonly unknown[] = typeof vapeGameABI,

@@ -4,10 +4,7 @@ import { publicProvider } from "@wagmi/core/providers/public";
 import { createClient } from "@supabase/supabase-js";
 import { formatEther, parseEther } from "viem";
 
-import {
-  readVapeGame,
-  watchVapeGameEvent,
-} from "./generated";
+import { readVapeGame, watchVapeGameEvent } from "./generated";
 import { Database } from "./supabase";
 import { alchemyProvider } from "wagmi/providers/alchemy";
 import { infuraProvider } from "wagmi/providers/infura";
@@ -117,6 +114,7 @@ bot.command("vapestats", async (ctx) => {
     lastPurchasedTime,
     lastPurchasedAddress,
     gameTime,
+    numHits,
   ] = await Promise.all([
     readVapeGame({ functionName: "minInvest" }),
     readVapeGame({ functionName: "potValueETH" }),
@@ -125,6 +123,7 @@ bot.command("vapestats", async (ctx) => {
     readVapeGame({ functionName: "lastPurchasedTime" }),
     readVapeGame({ functionName: "lastPurchasedAddress" }),
     readVapeGame({ functionName: "GAME_TIME" }),
+    readVapeGame({ functionName: "numHits" }),
   ]);
   console.log("stats command from chat: ", ctx.chat.id);
   console.log("lastPurchasedTime: ", lastPurchasedTime);
@@ -147,6 +146,9 @@ bot.command("vapestats", async (ctx) => {
       '">' +
       lastPurchasedAddress +
       "</a>\n" +
+      "🔢 Number of Hits Taken: <b>" +
+      (numHits ?? 0n) +
+      "</b> 🔢\n" +
       "💸 Next Hit Price: <b>" +
       formatEther(minInvest ?? 0n) +
       " ETH</b> 💸\n" +

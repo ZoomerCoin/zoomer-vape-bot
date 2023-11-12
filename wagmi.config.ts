@@ -17,7 +17,7 @@ export default defineConfig(() => {
           {
             name: "VapeGame",
             address: {
-              [mainnet.id]: "0x0D6dC2a36C5c3EbD6F9B67Afd18b31C0074089E5",
+              [mainnet.id]: "0xC018FF8c08842151CbfA26E72Fe39fD0A155120D",
             },
           },
         ],
