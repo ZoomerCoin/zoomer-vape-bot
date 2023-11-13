@@ -182,7 +182,7 @@ bot.command("vapestats", async (ctx) => {
             +hours > 0 ? "hours" : "minutes"
           }%20I%20will%20win%20${formatEther(
             potValueETH ?? 0n
-          )}%20ETH%20and%20an%20other%20lucky%20random%20winner%20will%20win%20${formatEther(
+          )}%20ETH%20and%20another%20lucky%20random%20winner%20will%20win%20${formatEther(
             lottoValueETH ?? 0n
           )}%20ETH.%0A%0AI%20will%20also%20gain%20dividends%20for%20hits%20taken%20after%20me.%0A%0A%2FTAKE_THE_HIT%0A%0Azoomer.vape.money%0A%0A%24ZOOMER%20`
         )
@@ -266,7 +266,7 @@ watchVapeGameEvent({ chainId: 1, eventName: "TookAHit" }, async (log) => {
                   hitLog.args.amount ?? 0n
                 )}%20ETH%20%F0%9F%92%A8%0A%0AIf%20nobody%20hits%20in%2012%20hours%20I%20will%20win%20${formatEther(
                   hitLog.args.potValueETH ?? 0n
-                )}%20ETH%20and%20an%20other%20lucky%20random%20winner%20will%20win%20${formatEther(
+                )}%20ETH%20and%20another%20lucky%20random%20winner%20will%20win%20${formatEther(
                   hitLog.args.lottoValueETH ?? 0n
                 )}%20ETH.%0A%0AI%20will%20also%20gain%20dividends%20for%20hits%20taken%20after%20me.%0A%0A%2FTAKE_THE_HIT%0A%0Azoomer.vape.money%0A%0A%24ZOOMER%20`
               )
