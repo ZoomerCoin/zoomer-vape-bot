@@ -184,7 +184,7 @@ bot.command("vapestats", async (ctx) => {
             potValueETH ?? 0n
           )}%20ETH%20and%20another%20lucky%20random%20winner%20will%20win%20${formatEther(
             lottoValueETH ?? 0n
-          )}%20ETH.%0A%0AI%20will%20also%20gain%20dividends%20for%20hits%20taken%20after%20me.%0A%0A%2FTAKE_THE_HIT%0A%0Azoomer.vape.money%0A%0A%24ZOOMER%20`
+          )}%20ETH.%0A%0AI%20will%20also%20gain%20dividends%20for%20hits%20taken%20after%20me.%0A%0A%2FTAKE_THE_HIT%0A%0Avape.zoomer.money%0A%0A%24ZOOMER%20`
         )
         .row()
         .url(
@@ -268,7 +268,7 @@ watchVapeGameEvent({ chainId: 1, eventName: "TookAHit" }, async (log) => {
                   hitLog.args.potValueETH ?? 0n
                 )}%20ETH%20and%20another%20lucky%20random%20winner%20will%20win%20${formatEther(
                   hitLog.args.lottoValueETH ?? 0n
-                )}%20ETH.%0A%0AI%20will%20also%20gain%20dividends%20for%20hits%20taken%20after%20me.%0A%0A%2FTAKE_THE_HIT%0A%0Azoomer.vape.money%0A%0A%24ZOOMER%20`
+                )}%20ETH.%0A%0AI%20will%20also%20gain%20dividends%20for%20hits%20taken%20after%20me.%0A%0A%2FTAKE_THE_HIT%0A%0Avape.zoomer.money%0A%0A%24ZOOMER%20`
               )
               .row()
               .url(
